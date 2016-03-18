@@ -28,7 +28,7 @@ import thaipbsradio.apppi.co.thaipbsradio.pojo.TwoActivity;
 /**
  * Created by pipatpong on 3/8/16 AD.
  */
-public class RadioFragment extends Fragment implements View.OnClickListener {
+public class RadioFragment extends Fragment {
 
     private RadioAdapter radioAdapter;
     private ArrayList<Radioobject> arrRadio;
@@ -39,20 +39,9 @@ public class RadioFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.radio_fragment,container,false);
         arrRadio = new ArrayList<Radioobject>();
-        List<Radio> radiosList = new ArrayList<>();
 
 
-
-
-
-        for (int i=0;i<20;i++) {
-
-            radiosList.add(new Radio(R.drawable.orange1, "กล้วย", "กล้วยน้ำว้า"));
-           // radiosList.add(new Radio(R.drawable.orange1, "กล้วย", "กล้วยน้ำว้า"));
-           // radiosList.add(new Radio(R.drawable.orange1, "กล้วย", "กล้วยน้ำว้า"));
-        }
-
-        radioAdapter = new RadioAdapter(arrRadio,getActivity(),this);
+        radioAdapter = new RadioAdapter(arrRadio,getActivity());
 
         recyclerView = (RecyclerView) view.findViewById(R.id.mRecycleView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -91,16 +80,16 @@ public class RadioFragment extends Fragment implements View.OnClickListener {
         Load.execute();
 
     }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.radioview:
-                Intent Gotwo = new Intent(getContext(), thaipbsradio.apppi.co.thaipbsradio.pojo.TwoActivity.class);
-                Gotwo.putExtra("textName","textName");
-
-                startActivity(Gotwo);
-                break;
-        }
-    }
+//
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()){
+//            case R.id.radioview:
+//                Intent Gotwo = new Intent(getActivity(), TwoActivity.class);
+//                Gotwo.putExtra("textName","textName");
+//
+//                startActivity(Gotwo);
+//                break;
+//        }
+//    }
 }
