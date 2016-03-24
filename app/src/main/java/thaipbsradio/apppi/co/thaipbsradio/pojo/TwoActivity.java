@@ -34,7 +34,7 @@ public class TwoActivity extends Activity{
 
         imageView = (ImageView)findViewById(R.id.imgPhoto1);
 
-        photo = getIntent().getExtras().getString("imgePhoto");
+        photo = getIntent().getExtras().getString("imgPhoto1");
 
         Glide.with(this).load(photo).into(imageView);
 
